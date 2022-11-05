@@ -11,7 +11,7 @@ export default function Login (){
     const [password,setPassword]=useState('');
     const [warning,setWarning] =useState('');
     return (
-        <ImageBackground source={require('./login.png')} resizeMode = "cover" style = {styles.bgimage}>
+        <ImageBackground source={require('./309801225_1271235570111784_2236775530307066990_n.png')} resizeMode = "cover" style = {styles.bgimage}>
         <View  style ={styles.container}>
             <Text>{warning}</Text>
             <TextInput style={styles.txtinput} placeholder="Email Address" value={email} onChangeText={setEmail}/>
