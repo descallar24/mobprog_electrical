@@ -1,22 +1,27 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Button,Text, TextInput, View, TouchableOpacity,Image, ImageBackground} from "react-native";
+import { Pressable, Button,Text, TextInput, View, TouchableOpacity,Image, ImageBackground} from "react-native";
 import { StyleSheet } from "react-native";
-import Registration from "../registration";
-
+import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Login (){
     const navigation = useNavigation ();
     const [email, setEmail] =useState('');
     const [password,setPassword]=useState('');
     const [warning,setWarning] =useState('');
+    const { passwordVisibility, rightIcon, handlePasswordVisibility } = useTogglePasswordVisibility();
+  
     return (
         <ImageBackground source={require('./309801225_1271235570111784_2236775530307066990_n.png')} resizeMode = "cover" style = {styles.bgimage}>
         <View  style ={styles.container}>
             <Image source={require('./electriCAL__2_-removebg-preview.png')}style = {styles.image}/>
             <Text>{warning}</Text>
             <TextInput style={styles.txtinput} placeholder="Email Address" value={email} onChangeText={setEmail}/>
-            <TextInput style={styles.txtinput} placeholder="Password"  value={password} onChangeText={setPassword} secureTextEntry={true}/>
+            <TextInput style={styles.txtinput} placeholder="Password"  value={password} onChangeText={setPassword} secureTextEntry={passwordVisibility}/>
+            <Pressable style={styles.eye} onPress={handlePasswordVisibility}>
+                <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
+            </Pressable>
             <TouchableOpacity style={styles.loginButton} onPress={() =>{
                     navigation.navigate('Dashboard')
                 }}>
@@ -91,6 +96,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         textAlign:'center',
         marginBottom: 5,
+        marginTop: -25
     },
 
     text:{
@@ -113,6 +119,10 @@ const styles = StyleSheet.create({
     },
     bgimage: {
         flex: 1
-    }
+    },
 
+    eye: {
+        marginLeft: 250, 
+         top: -45,
+     },
   });
