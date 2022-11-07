@@ -14,10 +14,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Forgotpassword" component={Forgotpassword} />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Registration" component={Registration} options={{title:"Register"}} />
+        <Stack.Screen name="Profile" component={Profile} options={{title: "Profile Details"}}/>
 
       </Stack.Navigator>
     </NavigationContainer>

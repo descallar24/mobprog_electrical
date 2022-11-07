@@ -1,21 +1,28 @@
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import React from "react";
+import { useRoute } from "@react-navigation/native";
 import { Text, TextInput, View, TouchableOpacity,Image, ImageBackground} from "react-native";
 import { StyleSheet } from "react-native";
-import Registration from "../registration";
+import { useNavigation } from "@react-navigation/native";
+
 
 
 
 export default function Profile (){
+
+    const route =useRoute();
     const navigation = useNavigation ();
-    const {first_name,last_name,email} = Registration ();
+
     return (
-        <ImageBackground source={require('./309801225_1271235570111784_2236775530307066990_n.png')} resizeMode = "cover" style = {styles.bgimage}>
-        <View  style ={styles.container}>
-            <Text style={styles.welcome}>Profile</Text>
-            <Text>First Name: {first_name}</Text>
-            <Text>Last Name: {last_name}</Text>
-            <Text>Email: {email}</Text>
+        <ImageBackground source={require('./Max.png')} resizeMode = "cover" style = {styles.bgimage}>
+        <View style={styles.container}>
+            <Text style={styles.name}>First Name: {route.params.first_name}</Text>
+            <Text style={styles.name}>Last Name: {route.params.last_name}</Text>
+            <Text style={styles.name}>Email Address: {route.params.email}</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={() =>{
+                    navigation.navigate('Login')
+                }}>
+                <Text style={styles.text}>LOG OUT</Text>    
+            </TouchableOpacity>
         </View>
         </ImageBackground>
     )
@@ -24,26 +31,33 @@ export default function Profile (){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
       justifyContent: 'center',
+      marginTop: 150
     
     },
-    
-    txtinput:{
-        borderWidth: 2,
-        height: 50,
-        width: 300,
-        padding:10,
-        margin:5,
-        marginTop: 10,
-        textAlign:'center',
-        borderRadius: 20,
-        backgroundColor: '#EBE8CD',
-        justifyContent: 'center',
-        fontFamily: "sans-serif-condensed"
+  
+    bgimage: {
+        flex: 1
+    },
 
+    name: {
+        fontFamily: "sans-serif-condensed",
+        marginLeft: 40,
+        marginBottom:20,
+        marginTop: 30,
+        fontSize: 20
     },
     
+    loginButton: {
+        width: 200,
+        backgroundColor: '#DCB900',
+        height: 50,
+        width: 250,
+        borderRadius: 20,
+        marginBottom: 5,
+        marginTop: 25,
+        marginLeft: 50
+    },
 
     text:{
         fontStyle: "normal",
@@ -56,40 +70,9 @@ const styles = StyleSheet.create({
         fontFamily: "sans-serif-condensed"
 
     },
-  
-    bgimage: {
-        flex: 1
-    },
 
-    
-     loginButton: {
-        width: 200,
-        backgroundColor: '#DCB900',
-        height: 50,
-        width: 250,
-        borderRadius: 20,
-        textAlign:'center',
-        marginTop: 20
-    },
 
-    forgot: {
-        fontStyle: "normal",
-        fontSize: 18,
-        textAlign:'center',
-        height: 60,
-        padding:5,
-        marginTop:-5,
-        fontWeight: "thin",
-        fontFamily: "sans-serif-condensed",
-    },
-    welcome: { 
-        fontFamily: "sans-serif-condensed",
-        fontWeight: "bold",
-        fontSize: 40,
-        top: -5,
-        marginLeft: 15,
-        
-    },
+
  
 
   });

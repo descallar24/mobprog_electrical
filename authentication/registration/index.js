@@ -9,65 +9,46 @@ import { con_PasswordVisibility } from "./con_PasswordVisibility";
 
 export default function Registration(){
     const navigation = useNavigation();
+    const [first_name, setFirstName] = useState ("");
+    const [last_name, setLastName] = useState ("");
+    const [email, setEmail] = useState ("");
+    const [password, setPassword] = useState ("");
+    const [conpass, setConPass] = useState ("");
+
     const { passwordVisibility, rightIcon, handlePasswordVisibility } = useTogglePasswordVisibility();
     const { passwordVisibility2, rightIcon2, handlePasswordVisibility2 } = con_PasswordVisibility();
 
-    const [data, setData] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        password1: '',
-        password2: ''
-    })
+
+
+    const register = () => {
+        navigation.navigate("Profile", {
+            first_name: first_name,
+            last_name: last_name,
+            email: email
+        })
+    };
     return(
         <ImageBackground source={require('./309801225_1271235570111784_2236775530307066990_n.png')} resizeMode = "cover" style = {styles.bgimage}>
         <View style={styles.container}>
             <Text style={styles.welcome}>Welcome, Onboard!</Text>
             <Text style={styles.lets}>Let's assist you in completing your tasks!</Text>
-            <TextInput style={styles.txtinput} placeholder="First name" value={data.first_name} onChangeText={(text) => {
-                setData({
-                    ...data,
-                    first_name: text
-                });
-            }} />
-            <TextInput style={styles.txtinput} placeholder="Last name" value={data.last_name} onChangeText={(text) => {
-                setData({
-                    ...data,
-                last_name: text
-                });
-            }} />
-            <TextInput style={styles.txtinput} placeholder="Email Address" value={data.email} onChangeText={(text) => {
-                setData({
-                    ...data,
-                email: text
-                });
-            }} />
-            <TextInput style={styles.txtinput} placeholder="Password" value={data.password1} secureTextEntry={passwordVisibility} onChangeText={(text) => {
-                setData({
-                    ...data,
-                    password1: text
-                });
-            }} />
+            <TextInput style={styles.txtinput} placeholder="First name" value={first_name} onChangeText={(text) => setFirstName (text)} />
+            <TextInput style={styles.txtinput} placeholder="Last name" value={last_name} onChangeText={(text) => setLastName (text)} />
+            <TextInput style={styles.txtinput} placeholder="Email Address" value={email} onChangeText={(text) => setEmail (text)} />
+            <TextInput style={styles.txtinput} placeholder="Password" value={password} secureTextEntry={passwordVisibility} onChangeText={(text) => setPassword (text)} />
             <Pressable style={styles.eye} onPress={handlePasswordVisibility}>
                 <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
             </Pressable>
-            <TextInput style={styles.constyles} placeholder="Confirm Password" value={data.password2} secureTextEntry={passwordVisibility2} onChangeText={(text) => {
-                setData({
-                    ...data,
-                password2: text
-                });
-            }} />
+            <TextInput style={styles.constyles} placeholder="Confirm Password" value={conpass} secureTextEntry={passwordVisibility2} onChangeText={(text) => setConPass (text)} />
             <Pressable style={styles.eye} onPress={handlePasswordVisibility2}>
                 <MaterialCommunityIcons name={rightIcon2} size={22} color="#232323" />
             </Pressable>
-            <TouchableOpacity style={styles.regButton} onPress={() =>{
-                    navigation.navigate('Profile')
-                }}>
+            <TouchableOpacity style={styles.regButton} onPress={register}>
                 <Text style={styles.text}>REGISTER</Text> 
             </TouchableOpacity>
-            <Text style={styles.fg}>Already Have an Account? <Text onPress={() => {
-                navigation.navigate('Login');
-            }} style={styles.fg2}>Sign in</Text></Text>
+            <Text style={styles.fg}>Already Have an Account? <Text onPress={() =>{
+                    navigation.navigate('Login')
+                }} style={styles.fg2}>Sign in</Text></Text>
    
         </View>
         </ImageBackground>
