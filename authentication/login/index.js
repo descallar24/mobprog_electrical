@@ -7,17 +7,93 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Login (){
     const navigation = useNavigation ();
+
     const [email, setEmail] =useState('');
     const [password,setPassword]=useState('');
     const [warning,setWarning] =useState('');
     const { passwordVisibility, rightIcon, handlePasswordVisibility } = useTogglePasswordVisibility();
-  
+    const [checkValidEmail, setCheckValidEmail] = useState(false);
+
+
+    const handleCheckEmail = text => {
+        let re = /\S+@\S+\.\S+/;
+        let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    
+        setEmail(text);
+        if (re.test(text) || regex.test(text)) {
+          setCheckValidEmail(false);
+        } else {
+          setCheckValidEmail(true);
+        }
+      };
+    
+      const checkPasswordValidity = value => {
+        const isNonWhiteSpace = /^\S*$/;
+        if (!isNonWhiteSpace.test(value)) {
+          return 'Password must not contain Whitespaces.';
+        }
+    
+        const isContainsUppercase = /^(?=.*[A-Z]).*$/;
+        if (!isContainsUppercase.test(value)) {
+          return 'Password must have at least one Uppercase Character.';
+        }
+    
+        const isContainsLowercase = /^(?=.*[a-z]).*$/;
+        if (!isContainsLowercase.test(value)) {
+          return 'Password must have at least one Lowercase Character.';
+        }
+    
+        const isContainsNumber = /^(?=.*[0-9]).*$/;
+        if (!isContainsNumber.test(value)) {
+          return 'Password must contain at least one Digit.';
+        }
+    
+        const isValidLength = /^.{8,16}$/;
+        if (!isValidLength.test(value)) {
+          return 'Password must be 8-16 Characters Long.';
+        }
+    
+        // const isContainsSymbol =
+        //   /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+        // if (!isContainsSymbol.test(value)) {
+        //   return 'Password must contain at least one Special Symbol.';
+        // }
+    
+        return null;
+      };
+    
+      const handleLogin = () => {
+        const checkPassowrd = checkPasswordValidity(password);
+        if (!checkPassowrd) {
+          user_login({
+            email: email.toLocaleLowerCase(),
+            password: password,
+          })
+            .then(result => {
+              if (result.status == 200) {
+                AsyncStorage.setItem('AccessToken', result.data.token);
+                navigation.replace('Home');
+              }
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } else {
+          alert(checkPassowrd);
+        }
+      };
+
     return (
         <ImageBackground source={require('./309801225_1271235570111784_2236775530307066990_n.png')} resizeMode = "cover" style = {styles.bgimage}>
         <View  style ={styles.container}>
             <Image source={require('./electriCAL__2_-removebg-preview.png')}style = {styles.image}/>
             <Text>{warning}</Text>
-            <TextInput style={styles.txtinput} placeholder="Email Address" value={email} onChangeText={setEmail}/>
+            <TextInput style={styles.txtinput} placeholder="Email Address" value={email} onChangeText={text => handleCheckEmail(text)}/>
+            {checkValidEmail ? (
+            <Text style={styles.textFailed}>Invalid Email!</Text>
+             ) : (
+            <Text style={styles.textFailed}> </Text>
+            )}
             <TextInput style={styles.txtinput} placeholder="Password"  value={password} onChangeText={setPassword} secureTextEntry={passwordVisibility}/>
             <Pressable style={styles.eye} onPress={handlePasswordVisibility}>
                 <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
@@ -28,7 +104,7 @@ export default function Login (){
                 <Text style={styles.text}>LOG IN</Text>    
             </TouchableOpacity>
             <TouchableOpacity onPress={() =>{
-                    navigation.navigate('Registration');
+                    navigation.navigate('Forgotpassword');
                 }}>
                 <Text style={styles.fg}>Forgot Password?</Text>
               </TouchableOpacity>
@@ -125,4 +201,9 @@ const styles = StyleSheet.create({
         marginLeft: 250, 
          top: -45,
      },
+
+     textFailed: {
+        alignSelf: 'center',
+        color: 'red',
+      },
   });

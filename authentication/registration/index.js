@@ -61,7 +61,7 @@ export default function Registration(){
                 <MaterialCommunityIcons name={rightIcon2} size={22} color="#232323" />
             </Pressable>
             <TouchableOpacity style={styles.regButton} onPress={() =>{
-                    navigation.navigate('Dashboard')
+                    navigation.navigate('Profile')
                 }}>
                 <Text style={styles.text}>REGISTER</Text> 
             </TouchableOpacity>

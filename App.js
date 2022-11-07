@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Registration from './authentication/registration';
 import Dashboard from './authentication/dashboard';
 import { StyleSheet } from 'react-native';
+import Forgotpassword from './authentication/forgotpassword';
+import Profile from './authentication/profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +16,8 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="Forgotpassword" component={Forgotpassword} />
+        <Stack.Screen name="Profile" component={Profile} />
 
       </Stack.Navigator>
     </NavigationContainer>
