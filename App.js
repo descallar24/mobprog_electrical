@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Registration from './authentication/registration';
 import Profile from './authentication/profile';
+import Forgotpassword from './authentication/forgotpassword';
 
 import { StyleSheet } from 'react-native';
 
@@ -15,6 +16,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} options={{title:"Register"}} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Forgotpassword" component={Forgotpassword} />
     
       </Stack.Navigator>
     </NavigationContainer>

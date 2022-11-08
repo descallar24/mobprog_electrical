@@ -98,9 +98,7 @@ export default function Login (){
             <Pressable style={styles.eye} onPress={handlePasswordVisibility}>
                 <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
             </Pressable>
-            <TouchableOpacity style={styles.loginButton} onPress={() =>{
-                    navigation.navigate('Dashboard')
-                }}>
+            <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.text}>LOG IN</Text>    
             </TouchableOpacity>
             <TouchableOpacity onPress={() =>{
