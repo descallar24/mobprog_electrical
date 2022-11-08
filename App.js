@@ -2,7 +2,7 @@ import Login from './authentication/login';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Registration from './authentication/registration';
-
+import Profile from './authentication/profile';
 
 import { StyleSheet } from 'react-native';
 
@@ -14,7 +14,8 @@ export default function App() {
       <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} options={{title:"Register"}} />
-            
+        <Stack.Screen name="Profile" component={Profile} />
+    
       </Stack.Navigator>
     </NavigationContainer>
   );
