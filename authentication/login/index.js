@@ -4,6 +4,7 @@ import { Pressable, Button,Text, TextInput, View, TouchableOpacity,Image, ImageB
 import { StyleSheet } from "react-native";
 import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Dashboard from "../dashboard";
 
 export default function Login (){
     const navigation = useNavigation ();
@@ -98,8 +99,10 @@ export default function Login (){
             <Pressable style={styles.eye} onPress={handlePasswordVisibility}>
                 <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
             </Pressable>
-            <TouchableOpacity style={styles.loginButton}>
-                <Text style={styles.text}>LOG IN</Text>    
+            <TouchableOpacity style={styles.loginButton} onPress= {() => {
+              navigation.navigate('DrawBar');
+            }} >
+                <Text style={styles.text} >LOG IN</Text>    
             </TouchableOpacity>
             <TouchableOpacity onPress={() =>{
                     navigation.navigate('Forgotpassword');
