@@ -11,28 +11,11 @@ import React from 'react';
 import Manual from './screen/Manual';
 import About from './screen/About';
 import DrawBar from './screen/DrawBar';
+import FAQ from './screen/FAQ';
 
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator ();
-
-const ManualScreenStack = () => {
-  return (
-    <Stack.Navigator initialRouteName= "Manual1"
-    screenOptions= {{headerShown: false}}>
-      <Stack.Screen name="Manual" component={Manual}/>
-    </Stack.Navigator> 
-  );
-}
-
-const AboutScreenStack = () => {
-  return (
-    <Stack.Navigator initialRouteName= "About1"
-    screenOptions= {{headerShown: false}}>
-      <Stack.Screen name="About" component={About}/>
-    </Stack.Navigator> 
-  );
-}
 
 
 export default function App() {
@@ -47,6 +30,8 @@ export default function App() {
         <Stack.Screen name="DrawBar" component={DrawBar} />
         <Stack.Screen name= "Manual"  component={Manual}/>
         <Stack.Screen name= "About" component={About}/>
+        <Stack.Screen name= "FAQ's" component={FAQ}/>
+        <Stack.Screen name= "Log Out" component={Login}/>
         </Stack.Navigator>
     </NavigationContainer>
     

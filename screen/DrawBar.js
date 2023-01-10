@@ -2,18 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from "@react-navigation/native";
 import React, { useRef, useState } from 'react';
 import {TextInput, Animated, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Touchable } from 'react-native';
-import About from './About';
+import About1 from './About';
 import Manual from './Manual';
 import female from './pics/female.png';
 import menu from './pics/menu.png';
 import suga from './pics/suga.png';
 import close from './pics/close.png'
 import { FontAwesome5 } from '@expo/vector-icons';
+import { Component } from 'react/cjs/react.production.min';
+import FAQ from './FAQ';
+import Login from '../authentication/login';
 
 export default function DrawBar() {
     const [currentTab, setCurrentTab] = useState("Dashboard");
     const [showMenu, setShowMenu] = useState(false);
-    const navigation = useNavigation();
     const [budget, setBudget] = useState('')
     const kwh = 16.673;
     const [result, setResult] = useState('')
@@ -43,14 +45,14 @@ export default function DrawBar() {
                 //Tab
             }
             {TabButton(currentTab,setCurrentTab, "Manual", Manual)}
-            {TabButton(currentTab,setCurrentTab, "About", About)}
-            {TabButton(currentTab,setCurrentTab, "FAQ's", About)}
-            {TabButton(currentTab,setCurrentTab, "History", About)}
-            {TabButton(currentTab,setCurrentTab, "Your Devices", About)}
+            {TabButton(currentTab,setCurrentTab, "About", About1)}
+            {TabButton(currentTab,setCurrentTab, "FAQ's", FAQ)}
+            {TabButton(currentTab,setCurrentTab, "History", About1)}
+            {TabButton(currentTab,setCurrentTab, "Your Devices", About1)}
            </View>
 
            <View style = {{marginBottom: 30}}>
-           {TabButton(currentTab,setCurrentTab, "Log Out", About)}
+           {TabButton(currentTab,setCurrentTab, "Log Out", Login)}
            </View>
 
            {
@@ -262,9 +264,10 @@ export default function DrawBar() {
 }
 
 const TabButton = (currentTab, setCurrentTab,title) =>{
+    const navigation = useNavigation();
     return (
         <TouchableOpacity onPress={() =>{
-            setCurrentTab(title)
+            navigation.navigate(title)
         }}>
                <View style ={styles.Button}>
                 <Text style = {styles.textMan}>{title }</Text>
