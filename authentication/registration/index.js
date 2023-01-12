@@ -43,7 +43,9 @@ export default function Registration(){
             <Pressable style={styles.eye} onPress={handlePasswordVisibility2}>
                 <MaterialCommunityIcons name={rightIcon2} size={22} color="#232323" />
             </Pressable>
-            <TouchableOpacity style={styles.regButton} onPress={register}>
+            <TouchableOpacity style={styles.regButton} onPress={()=>{
+                navigation.navigate("Login");
+            }}>
                 <Text style={styles.text}>REGISTER</Text> 
             </TouchableOpacity>
             <Text style={styles.fg}>Already Have an Account? <Text onPress={() =>{

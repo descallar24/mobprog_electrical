@@ -28,7 +28,7 @@ export default function Dashboard(){
             </TouchableOpacity>
         <Image source={require('./suga.png')} style = {styles.image}/>
 
-            <Text style = {styles.text}>
+            <Text style = {styles.textbud}>
                  Input Your Budget: {budget} 
             </Text>
             <TextInput style ={styles.txtinput} placeholder="PHP" 

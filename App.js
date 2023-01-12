@@ -12,20 +12,22 @@ import Manual from './screen/Manual';
 import About from './screen/About';
 import DrawBar from './screen/DrawBar';
 import FAQ from './screen/FAQ';
+import GetDone from './authentication/GetDone';
+import Verification from './authentication/verification';
 
 
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator ();
-
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name="Login" component={Login} />
+      <Stack.Navigator initialRouteName="GetDone" screenOptions={{headerShown:false}}>
+        <Stack.Screen name="GetDone" component={GetDone} />
         <Stack.Screen name="Registration" component={Registration} options={{title:"Register"}} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Forgotpassword" component={Forgotpassword} />
+        <Stack.Screen name="Verification" component={Verification} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="DrawBar" component={DrawBar} />
         <Stack.Screen name= "Manual"  component={Manual}/>

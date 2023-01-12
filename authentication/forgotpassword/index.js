@@ -15,9 +15,14 @@ export default function Forgotpassword (){
             <Text style={styles.forgot}>Enter your Email address and we will send you instructions to reset your password.</Text>
             <TextInput style={styles.txtinput} placeholder="Email Address" require={true} value={email} onChangeText={setEmail}/>
             <TouchableOpacity style={styles.loginButton} onPress={() =>{
-                    navigation.navigate('Login')
+                    navigation.navigate('Verification')
                 }}>
                 <Text style={styles.text}>SEND EMAIL</Text>    
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.BackButton} onPress={() =>{
+                    navigation.navigate('Login')
+                }}>
+                <Text style={styles.text2}>BACK</Text> 
             </TouchableOpacity>
         </View>
         </ImageBackground>
@@ -59,6 +64,18 @@ const styles = StyleSheet.create({
         fontFamily: "sans-serif-condensed"
 
     },
+
+    text2:{
+        fontStyle: "normal",
+        fontSize: 25,
+        textAlign:'center',
+        height: 60,
+        padding:5,
+        margin:5,
+        fontWeight: "bold",
+        fontFamily: "sans-serif-condensed"
+
+    },
   
     bgimage: {
         flex: 1
@@ -75,12 +92,22 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 
+    BackButton: {
+        width: 200,
+        backgroundColor: '#DCB900',
+        height: 50,
+        width: 250,
+        borderRadius: 20,
+        textAlign:'center',
+        marginTop: 20
+    },
+
     forgot: {
         fontStyle: "normal",
-        fontSize: 18,
+        fontSize: 17,
         textAlign:'center',
         height: 60,
-        padding:5,
+        paddingLeft:5,
         marginTop:-5,
         fontWeight: "thin",
         fontFamily: "sans-serif-condensed",
