@@ -15,9 +15,9 @@ export default function Profile (){
     return (
         <ImageBackground source={require('./Max.png')} resizeMode = "cover" style = {styles.bgimage}>
         <View style={styles.container}>
-            <Text style={styles.name}>First Name: {route.params.first_name}</Text>
-            <Text style={styles.name}>Last Name: {route.params.last_name}</Text>
-            <Text style={styles.name}>Email Address: {route.params.email}</Text>
+            <Text style={styles.name}>First Name: </Text>
+            <Text style={styles.name}>Last Name: </Text>
+            <Text style={styles.name}>Email Address: </Text>
             <TouchableOpacity style={styles.loginButton} onPress={() =>{
                     navigation.navigate('Login')
                 }}>

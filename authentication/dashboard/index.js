@@ -59,10 +59,8 @@ export default function Dashboard(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+     width:300
     
-   
 
     },
 
@@ -195,8 +193,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EBE8CD',
         justifyContent: 'center',
         fontFamily: "sans-serif-condensed",
-        marginTop: -30,
-        marginLeft: 60
+        
     },
 
     calcButton: {
@@ -206,8 +203,7 @@ const styles = StyleSheet.create({
         width: 250,
         borderRadius: 20,
         textAlign:'center',
-        marginBottom: 5,
-        marginTop: 25
+     
     },
 
 

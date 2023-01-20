@@ -8,12 +8,15 @@ import { StyleSheet } from 'react-native';
 import Dashboard from './authentication/dashboard';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
-import Manual from './screen/Manual';
+import Devices from './screen/Devices';
 import About from './screen/About';
 import DrawBar from './screen/DrawBar';
 import FAQ from './screen/FAQ';
 import GetDone from './authentication/GetDone';
 import Verification from './authentication/verification';
+import Instructions from './screen/Instructions';
+import History from './screen/History';
+import YourDevices from './screen/YourDevices';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,10 +33,15 @@ export default function App() {
         <Stack.Screen name="Verification" component={Verification} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="DrawBar" component={DrawBar} />
-        <Stack.Screen name= "Manual"  component={Manual}/>
+        <Stack.Screen name= "Devices"  component={Devices}/>
         <Stack.Screen name= "About" component={About}/>
         <Stack.Screen name= "FAQ's" component={FAQ}/>
         <Stack.Screen name= "Log Out" component={Login}/>
+        <Stack.Screen name= "Instructions" component={Instructions}/>
+        <Stack.Screen name= "History" component={History} />
+        <Stack.Screen name= "Your Devices" component={YourDevices} />
+
+
         </Stack.Navigator>
     </NavigationContainer>
     

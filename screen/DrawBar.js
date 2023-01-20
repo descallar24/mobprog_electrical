@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useRef, useState } from 'react';
 import {TextInput, Animated, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Touchable } from 'react-native';
 import About1 from './About';
-import Manual from './Manual';
+import Devices from './Devices';
 import female from './pics/female.png';
 import menu from './pics/menu.png';
 import suga from './pics/suga.png';
@@ -12,6 +12,9 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Component } from 'react/cjs/react.production.min';
 import FAQ from './FAQ';
 import Login from '../authentication/login';
+import Instructions from './Instructions';
+import History from './History';
+import YourDevices from './YourDevices';
 
 export default function DrawBar() {
     const [currentTab, setCurrentTab] = useState("Dashboard");
@@ -22,6 +25,7 @@ export default function DrawBar() {
     const offsetValue = useRef(new Animated.Value(0)).current;
     const scaleValue = useRef(new Animated.Value(1)).current;
     const closeButtonOffset = useRef(new Animated.Value(0)).current;
+    const navigation = useNavigation();
    
 
 
@@ -37,18 +41,22 @@ export default function DrawBar() {
         }}></Image>
         <Text style = {styles.text}>Lady Maxine Sarsalijo</Text>
         <TouchableOpacity>
-            <Text style = {styles.vprof}>View Profile</Text>
+            <Text style = {styles.vprof} onPress={()=> {
+                navigation.navigate ("Profile");
+            }}>View Profile</Text>
             </TouchableOpacity>
 
            <View style={{ flexGrow: 1, marginTop: -380 }}>
             {
                 //Tab
             }
-            {TabButton(currentTab,setCurrentTab, "Manual", Manual)}
+            {TabButton(currentTab,setCurrentTab, "Devices", Devices)}
             {TabButton(currentTab,setCurrentTab, "About", About1)}
             {TabButton(currentTab,setCurrentTab, "FAQ's", FAQ)}
-            {TabButton(currentTab,setCurrentTab, "History", About1)}
-            {TabButton(currentTab,setCurrentTab, "Your Devices", About1)}
+            {TabButton(currentTab,setCurrentTab, "History", History)}
+            {TabButton(currentTab,setCurrentTab, "Your Devices", YourDevices)}
+            {TabButton(currentTab,setCurrentTab, "Instructions", Instructions)}
+
            </View>
 
            <View style = {{marginBottom: 30}}>

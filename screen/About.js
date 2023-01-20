@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EFECE1',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    
   },
   
   btext:{
@@ -65,8 +66,9 @@ const styles = StyleSheet.create({
     height: 30,
     width: 85,
     padding:0,
-    marginLeft:210,
+    marginLeft:200,
     marginTop: -30,
+    top:65,
     fontWeight: "bold",
     fontFamily: "sans-serif-condensed",
     
@@ -76,8 +78,7 @@ const styles = StyleSheet.create({
       height: 60,
       width: 60,
       color: 'white',
-      marginLeft: 290,
-      marginTop: -65,
+      left:270,
       textDecorationLine: 'underline',
 
   },
@@ -89,8 +90,8 @@ const styles = StyleSheet.create({
       paddingLeft: 20,
       paddingRight: 50,
       borderRadius: 15,
-      marginTop: 50,
-      marginLeft: 10
+      top:50,
+      left:-130
   },
 
   textAbout: {
@@ -111,26 +112,23 @@ const styles = StyleSheet.create({
 
   box: {
       height: 500,
-      width: 320,
-      marginLeft: 20,
+      width: 350,
       borderRadius: 15
   },
 
   circle: {
     height: 220,
     width:220,
-    marginTop: -100,
-    marginLeft: 210,
-    borderRadius: 220
+    top:-50,
+    left: 100
 },
 
   electext2:{
     fontStyle: "normal",
     fontSize: 35,
     textAlign:'center',
-    padding:0,
-    marginLeft:65,
-    marginTop: -380,
+    bottom:400,
+    left:-50,
     fontWeight: "bold",
     fontFamily: "sans-serif-condensed",
     
@@ -140,8 +138,8 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
     color: 'white',
-    marginLeft: 190,
-    marginTop: -565,
+    marginTop: -725,
+    left:70,
     textDecorationLine: 'underline',
 
 },

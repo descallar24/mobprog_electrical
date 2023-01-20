@@ -35,23 +35,25 @@ export default function GetDone(){
 
 const styles = StyleSheet.create({
     container: {
+        alignItems:'center',
+        alignContent: 'center',
+        textAlign: 'center',
       flex: 1,
       backgroundColor: '#EFECE1',
-      alignItems: 'center',
-      justifyContent: 'flex-start'
     },
 
     getIcon: {
         marginTop: 230,
-        left: 95
+      alignItems:'center',
+      left: 110  
     },
 
     getTxt: {
         fontFamily: "sans-serif-condensed",
         fontSize: 25,
         fontWeight: "bold",
-        left: 20,
-        top: 15
+        top: 15,
+        left: 46
     },
 
     getDef: {
@@ -70,10 +72,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#DCB900',
         height: 50,
         width: 250,
-        left: 55,
         borderRadius: 20,
         textAlign:'center',
-        marginTop: 55
+        marginTop: 55,
+        left: 72
     },
 
     getStarted:{
